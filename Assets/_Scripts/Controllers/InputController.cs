@@ -19,13 +19,12 @@ public class InputController : Singleton<InputController>
     private InputAction _shootAction;
     private InputAction _blowAction;
 
+    private bool _blowing;
+
     ////Events
-    public event Action<PointerEventData> Click;
-    public event Action Hold;
-    public event Action Cancel;
-    public event Action RightClick;
-    public event Action RightHold;
-    public event Action RightCancel;
+    public event Action<Vector2> Blow;
+    public event Action<Vector2> Point;
+    public event Action Shoot;
 
     private void Awake()
     {
@@ -37,13 +36,21 @@ public class InputController : Singleton<InputController>
     //// Start is called before the first frame update
     void Start()
     {
-
+        _blowing = false;
     }
 
     //// Update is called once per frame
     void Update()
     {
+        OnPoint();
+    }
 
+    void FixedUpdate()
+    {
+        if (_blowing)
+        {
+            OnBlowPerformed();
+        }
     }
 
     private void SetControls()
@@ -67,21 +74,29 @@ public class InputController : Singleton<InputController>
     //Redo RightClick action if needed in line with LeftClick
     private void OnBlowStarted(InputAction.CallbackContext context)
     {
-
+        _blowing = true;
         Debug.Log("Blow Started");
     }
     private void OnBlowPerformed()
     {
-        Debug.Log("Blow Performed");
+        Vector2 screenPos = _pointAction.ReadValue<Vector2>();
+        Blow?.Invoke(screenPos);
     }
     private void OnBlowCanceled(InputAction.CallbackContext context)
     {
+        _blowing = false;
         Debug.Log("Blow Canceled");
     }
 
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        
+        Shoot?.Invoke();
+    }
+
+    private void OnPoint()
+    {
+        Vector2 screenPos = _pointAction.ReadValue<Vector2>();
+        Point?.Invoke(screenPos);
     }
 }

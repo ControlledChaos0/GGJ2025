@@ -46,6 +46,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
         float pushVal = ((_maxPower - _minPower) * CustomMath.Sigmoid((distance * b) + a)) + _minPower;
         Vector2 dir = ((Vector2)transform.position - worldPos).normalized;
         _rigidbody.AddForce(dir * pushVal);
+        BubbleBlowerCursor.Instance.OnBlow();
 
         //Debug.Log("Distance: " + distance + "; Sigmoid: " + sigmoid + "; PushVal: " + pushVal);
     }

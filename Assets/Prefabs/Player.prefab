@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3080131672842986977}
   - component: {fileID: 4393176345681140646}
   - component: {fileID: 7169891811620413537}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1201628965372601356}
   - component: {fileID: 7763222414195181822}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8962061607299697294}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

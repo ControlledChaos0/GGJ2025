@@ -32,6 +32,7 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
         Vector2 direction = PlayerController.Instance.transform.position - transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity, aimMask.value);
         Debug.DrawRay(transform.position, direction);
+        Debug.Log(hit.collider);
         if (hit && hit.collider.TryGetComponent(out PlayerController pc))
         {
             Debug.Log(pc.transform);

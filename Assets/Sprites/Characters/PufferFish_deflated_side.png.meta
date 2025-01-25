@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PufferFish_deflated_side_0: -656432522462663494
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

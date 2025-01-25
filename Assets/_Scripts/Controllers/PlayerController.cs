@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerController : Singleton<PlayerController>
+public class PlayerController : Singleton<PlayerController>, IDamageable
 {
     [SerializeField] private Rigidbody2D _rigidbody;
 
@@ -59,5 +59,15 @@ public class PlayerController : Singleton<PlayerController>
     private void OnShoot()
     {
 
+    }
+
+    public void Damage()
+    {
+        // (Ryan) Very Basic, can be canged to bubble pop effect instead
+        // No need to actually destroy gameobject since scene resets!
+        gameObject.SetActive(false);
+
+        // (Ryan) Method of letting the LevelManager know the player is dead
+        LevelManager.Instance.OnPlayerDeath();
     }
 }

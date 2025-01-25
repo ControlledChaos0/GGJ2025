@@ -14,8 +14,9 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     [Header("Gun")] 
     [SerializeField] private GameObject _gunObject;
     private WeaponEmitter _gunEmitter;
-
+    [SerializeField] private float _gunRecoil = 5;
     [SerializeField] private Weapon _shotgunWeapon;
+
 
     private const float Limit = 6.0f;
     private float a;
@@ -66,6 +67,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     {
         Vector2 shootDir = _gunObject.transform.right;
         _gunEmitter.Fire(_shotgunWeapon, shootDir);
+        _rigidbody.AddForce(_gunRecoil * -shootDir, ForceMode2D.Impulse);
     }
 
     public void Damage()

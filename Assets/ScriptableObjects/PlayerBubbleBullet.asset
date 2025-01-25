@@ -26,7 +26,7 @@ MonoBehaviour:
   angularAcceletation: 0
   angularSwitchTime: 0
   colliderRadius: 0.15
-  knockbackForce: 5
+  knockbackForce: 15
   scaleKnockbackBySpeed: 1
   clusterWeapon: {fileID: 0}
   burstOnWall: 0

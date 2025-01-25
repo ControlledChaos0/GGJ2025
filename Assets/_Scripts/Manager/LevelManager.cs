@@ -28,6 +28,10 @@ public class LevelManager : Singleton<LevelManager>
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadSceneAsync("title");
+    }
     public void OnEnemyDeath()
     {
         if (--enemyCount <= 0)

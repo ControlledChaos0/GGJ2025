@@ -3,19 +3,29 @@ using UnityEngine;
 public class UIManager : Singleton<UIManager>
 {
     [Header("UI References")]
-    [SerializeField] private GameObject m_deathPanel;
+    [SerializeField] private DeathPanel m_deathPanel;
     [SerializeField] private GameObject m_pausePanel;
 
     private void Awake()
     {
         InitializeSingleton();
-        m_deathPanel.SetActive(false);
+        m_deathPanel.Hide();
         m_pausePanel.SetActive(false);
+    }
+    public void ShowPausePanel()
+    {
+        m_pausePanel.SetActive(true);
+        BubbleBlowerCursor.Instance.enabled = false;
+    }
+    public void HidePausePanel() 
+    {
+        m_pausePanel.SetActive(false);
+        BubbleBlowerCursor.Instance.enabled = true;
     }
 
     public void ShowDeathPanel()
     {
-        // (Ryan) Can use an alpha/animation reveal in future
-        m_deathPanel.SetActive(true);
+        m_deathPanel.Show();
+        BubbleBlowerCursor.Instance.enabled = false;
     }
 }

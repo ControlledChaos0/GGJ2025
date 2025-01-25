@@ -65,7 +65,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     {
         // (Ryan) Very Basic, can be canged to bubble pop effect instead
         // No need to actually destroy gameobject since scene resets!
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
         // (Ryan) Method of letting the LevelManager know the player is dead
         LevelManager.Instance.OnPlayerDeath();

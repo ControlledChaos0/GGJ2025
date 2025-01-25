@@ -8,7 +8,6 @@ public class Pufferfish : MonoBehaviour, IDamageable
     [SerializeField] private float speed;
 
     private GameObject player; // Change to singleton later
-
     private Rigidbody2D rb;
     private Vector2 dirToPlayer;
 
@@ -23,11 +22,11 @@ public class Pufferfish : MonoBehaviour, IDamageable
 
     void Start() {
         player = PlayerController.Instance.gameObject;
-        Debug.Log(player);
-        Collider2D[] colList = player.GetComponentsInChildren<Collider2D>();
-        foreach (Collider2D col in colList) {
-            Debug.Log(col);
-        }
+        // Debug.Log(player);
+        // Collider2D[] colList = player.GetComponentsInChildren<Collider2D>();
+        // foreach (Collider2D col in colList) {
+        //     Debug.Log(col);
+        // }
     }
 
     // Update is called once per frame
@@ -61,14 +60,14 @@ public class Pufferfish : MonoBehaviour, IDamageable
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("Entered");
+        // Debug.Log("Entered");
         if (LayerMask.LayerToName(other.gameObject.layer).Equals("Player")) {
             _CheckForPlayer = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
-        Debug.Log("Exited");
+        // Debug.Log("Exited");
         if (LayerMask.LayerToName(other.gameObject.layer).Equals("Player")) {
             _CheckForPlayer = false;
         }

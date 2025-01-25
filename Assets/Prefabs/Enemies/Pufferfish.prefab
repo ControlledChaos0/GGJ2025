@@ -107,7 +107,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   speed: 2
-  range: 5
+  range: 10
 --- !u!50 &8591997509528653085
 Rigidbody2D:
   serializedVersion: 5

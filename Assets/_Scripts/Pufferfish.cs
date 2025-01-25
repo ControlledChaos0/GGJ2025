@@ -40,7 +40,7 @@ public class Pufferfish : MonoBehaviour, IDamageable
             // Debug.Log("Checking for player");
             dirToPlayer = player.transform.position - transform.position;
             RaycastHit2D ray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), dirToPlayer, Mathf.Infinity, aimMask);
-            Debug.DrawRay(transform.position, dirToPlayer * 10);
+            // Debug.DrawRay(transform.position, dirToPlayer * 10);
             if (ray.collider != null && LayerMask.LayerToName(ray.collider.gameObject.layer).Equals("Player")) {
                 
                 MoveTowardsPlayer();

@@ -1,8 +1,8 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
+--- !u!114 &-5957521033345250446
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 8
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a242c0ea18574426a22e2faaddee5d8, type: 3}
-  m_Name: Walls
+  m_Name: Walls (Override)
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 1674944247464557103, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+  m_DefaultSprite: {fileID: 7588590507380544703, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: 1674944247464557103, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    - {fileID: 7588590507380544703, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 1
     m_Sprites:
-    - {fileID: -6370396869441653715, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    - {fileID: -8347358165838692263, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -52,7 +52,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 2
     m_Sprites:
-    - {fileID: -2593047330510756017, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    - {fileID: -8807361297517408281, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
     m_RuleTransform: 2
   - m_Id: 3
     m_Sprites:
-    - {fileID: -214786819707597038, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    - {fileID: -3546677501597804523, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -86,7 +86,7 @@ MonoBehaviour:
     m_RuleTransform: 2
   - m_Id: 6
     m_Sprites:
-    - {fileID: 3378647988862619242, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    - {fileID: 9000896091558229451, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -103,7 +103,7 @@ MonoBehaviour:
     m_RuleTransform: 2
   - m_Id: 7
     m_Sprites:
-    - {fileID: -8551637328873029191, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    - {fileID: -1074102528049407254, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -124,7 +124,7 @@ MonoBehaviour:
     m_RuleTransform: 2
   - m_Id: 4
     m_Sprites:
-    - {fileID: -6339129121600530896, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    - {fileID: 5902916036445687344, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -164,3 +164,33 @@ MonoBehaviour:
     - {x: 0, y: -1, z: 0}
     - {x: 1, y: -1, z: 0}
     m_RuleTransform: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c779848d9dd029409ca676b49e10a18, type: 3}
+  m_Name: Spike Walls
+  m_EditorClassIdentifier: 
+  m_Tile: {fileID: 11400000, guid: 66fe74cd96016de1d9196cd5e13b7682, type: 2}
+  m_Sprites:
+  - m_OriginalSprite: {fileID: 1674944247464557103, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    m_OverrideSprite: {fileID: 7588590507380544703, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+  - m_OriginalSprite: {fileID: -6370396869441653715, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    m_OverrideSprite: {fileID: -8347358165838692263, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+  - m_OriginalSprite: {fileID: -2593047330510756017, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    m_OverrideSprite: {fileID: -8807361297517408281, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+  - m_OriginalSprite: {fileID: -214786819707597038, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    m_OverrideSprite: {fileID: -3546677501597804523, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+  - m_OriginalSprite: {fileID: 3378647988862619242, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    m_OverrideSprite: {fileID: 9000896091558229451, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+  - m_OriginalSprite: {fileID: -8551637328873029191, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    m_OverrideSprite: {fileID: -1074102528049407254, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+  - m_OriginalSprite: {fileID: -6339129121600530896, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    m_OverrideSprite: {fileID: 5902916036445687344, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+  m_GameObjects: []
+  m_InstanceTile: {fileID: -5957521033345250446}

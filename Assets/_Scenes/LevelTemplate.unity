@@ -5399,6 +5399,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1992546723706948065, guid: a1271ac2f56396d4a8809090012164ff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 19.14209
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992546723706948065, guid: a1271ac2f56396d4a8809090012164ff, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75.583496
+      objectReference: {fileID: 0}
     - target: {fileID: 2143121610338442197, guid: a1271ac2f56396d4a8809090012164ff, type: 3}
       propertyPath: m_Name
       value: UICanvas
@@ -5755,19 +5763,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6891536946595328700, guid: 79c7d8c90e928fe42a9d4c8f8a12b1a2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.96592575
       objectReference: {fileID: 0}
     - target: {fileID: 6891536946595328700, guid: 79c7d8c90e928fe42a9d4c8f8a12b1a2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6891536946595328700, guid: 79c7d8c90e928fe42a9d4c8f8a12b1a2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6891536946595328700, guid: 79c7d8c90e928fe42a9d4c8f8a12b1a2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.25881952
       objectReference: {fileID: 0}
     - target: {fileID: 6891536946595328700, guid: 79c7d8c90e928fe42a9d4c8f8a12b1a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5779,9 +5787,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6891536946595328700, guid: 79c7d8c90e928fe42a9d4c8f8a12b1a2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -30
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7740119121928344753, guid: 79c7d8c90e928fe42a9d4c8f8a12b1a2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5929,7 +5938,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 05e794abe1c3275468ec7b6db7fd6b4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

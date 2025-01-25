@@ -6,6 +6,7 @@ public class Pufferfish : MonoBehaviour, IDamageable
     
     [SerializeField] private LayerMask aimMask;
     [SerializeField] private float speed;
+    [SerializeField] private float range;
 
     private GameObject player; // Change to singleton later
     private Rigidbody2D rb;
@@ -14,6 +15,7 @@ public class Pufferfish : MonoBehaviour, IDamageable
     // Parameters touched by OnTriggerEnter
     private bool _CheckForPlayer = false;
     private bool _Expanding;
+    
 
     void Awake() 
     {
@@ -32,18 +34,15 @@ public class Pufferfish : MonoBehaviour, IDamageable
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Vector2 hitDir = Vector2.Normalize(player.transform.position - transform.position);
-        // Ray ray = new Ray(transform.position, transform.forward);
-        // RaycastHit hitData;
-        // Debug.Log("Angle " + transform.forward); 
-        dirToPlayer = player.transform.position - transform.position;
-
         
-
+        _CheckForPlayer = (Vector3.Distance(player.transform.position, transform.position) <= range);
         if (_CheckForPlayer) {
+            // Debug.Log("Checking for player");
+            dirToPlayer = player.transform.position - transform.position;
             RaycastHit2D ray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), dirToPlayer, Mathf.Infinity, aimMask);
-            if (LayerMask.LayerToName(ray.collider.gameObject.layer).Equals("Player")) {
-                Debug.DrawRay(transform.position, dirToPlayer * 10);
+            Debug.DrawRay(transform.position, dirToPlayer * 10);
+            if (ray.collider != null && LayerMask.LayerToName(ray.collider.gameObject.layer).Equals("Player")) {
+                
                 MoveTowardsPlayer();
             }
             // // if (!_Expanding && Vector3.Distance(player.transform.position, transform.position) <= 2) {
@@ -59,19 +58,19 @@ public class Pufferfish : MonoBehaviour, IDamageable
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        // Debug.Log("Entered");
-        if (LayerMask.LayerToName(other.gameObject.layer).Equals("Player")) {
-            _CheckForPlayer = true;
-        }
-    }
+    // void OnTriggerEnter2D(Collider2D other) {
+    //     // Debug.Log("Entered");
+    //     if (LayerMask.LayerToName(other.gameObject.layer).Equals("Player")) {
+    //         _CheckForPlayer = true;
+    //     }
+    // }
 
-    void OnTriggerExit2D(Collider2D other) {
-        // Debug.Log("Exited");
-        if (LayerMask.LayerToName(other.gameObject.layer).Equals("Player")) {
-            _CheckForPlayer = false;
-        }
-    }
+    // void OnTriggerExit2D(Collider2D other) {
+    //     // Debug.Log("Exited");
+    //     if (LayerMask.LayerToName(other.gameObject.layer).Equals("Player")) {
+    //         _CheckForPlayer = false;
+    //     }
+    // }
 
     void FireRay() {
         Ray ray = new Ray(transform.position, transform.forward);
@@ -85,7 +84,9 @@ public class Pufferfish : MonoBehaviour, IDamageable
     }
 
     public void Damage() {
-
+        Debug.Log("Damaged?");
+        Destroy(gameObject);
+        LevelManager.Instance.OnEnemyDeath();
     }
 
     private void Expand() {

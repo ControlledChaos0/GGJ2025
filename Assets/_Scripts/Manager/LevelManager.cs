@@ -8,6 +8,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private string nextScene;
     [SerializeField] private Transform enemies;
     private int enemyCount;
+    private bool paused;
     private void Awake()
     {
         InitializeSingleton();
@@ -26,6 +27,7 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void RestartLevel()
     {
+        Unpause();
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
     public void BackToMainMenu()
@@ -42,6 +44,25 @@ public class LevelManager : Singleton<LevelManager>
     public void OnPlayerDeath()
     {
         UIManager.Instance.ShowDeathPanel();
+    }
+    public void Pause()
+    {
+        if (paused) return;
+        paused = true;
+        UIManager.Instance.ShowPausePanel();
+        Time.timeScale = 0f;
+    }
+    public void Unpause()
+    {
+        if (!paused) return;
+        paused = false;
+        UIManager.Instance.HidePausePanel();
+        Time.timeScale = 1f;
+    }
+    public void TogglePause()
+    {
+        if (paused) Unpause();
+        else Pause();
     }
 }
 

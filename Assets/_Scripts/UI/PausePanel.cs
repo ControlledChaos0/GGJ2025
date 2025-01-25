@@ -1,16 +1,26 @@
 using UnityEngine;
 
-public class PausePanel : MonoBehaviour
+public class PausePanel : Panel
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Hide()
     {
-        
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Show()
     {
-        
+        gameObject.SetActive(true);
+    }
+    public void OnBackToGame()
+    {
+        LevelManager.Instance.Unpause();
+    }
+    public void OnRestart()
+    {
+        LevelManager.Instance.RestartLevel();
+    }
+    public void OnBackToMainMenu()
+    {
+        LevelManager.Instance.BackToMainMenu();
     }
 }

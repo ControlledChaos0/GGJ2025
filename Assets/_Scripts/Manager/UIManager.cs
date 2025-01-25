@@ -4,22 +4,22 @@ public class UIManager : Singleton<UIManager>
 {
     [Header("UI References")]
     [SerializeField] private DeathPanel m_deathPanel;
-    [SerializeField] private GameObject m_pausePanel;
+    [SerializeField] private PausePanel m_pausePanel;
 
     private void Awake()
     {
         InitializeSingleton();
         m_deathPanel.Hide();
-        m_pausePanel.SetActive(false);
+        m_pausePanel.Hide();
     }
     public void ShowPausePanel()
     {
-        m_pausePanel.SetActive(true);
+        m_pausePanel.Show();
         BubbleBlowerCursor.Instance.gameObject.SetActive(false);
     }
     public void HidePausePanel() 
     {
-        m_pausePanel.SetActive(false);
+        m_pausePanel.Hide();
         BubbleBlowerCursor.Instance.gameObject.SetActive(true);
     }
 

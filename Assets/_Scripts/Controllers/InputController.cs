@@ -8,13 +8,14 @@ using UnityEngine.InputSystem.UI;
 
 public class InputController : Singleton<InputController>
 {
-    [SerializeField]
-    private InputActionAsset inputActions;
+    
 
     [SerializeField] private float _pressTime;
 
     private InputActionMap _playerControls;
+    private InputActionAsset inputActions;
 
+    private InputAction _pauseAction;
     private InputAction _pointAction;
     private InputAction _shootAction;
     private InputAction _blowAction;
@@ -32,11 +33,12 @@ public class InputController : Singleton<InputController>
 
         SetControls();
         InitializeControls();
+        inputActions.Enable();
     }
     //// Start is called before the first frame update
     void Start()
     {
-        _blowing = false;
+        _blowing = false; 
     }
 
     //// Update is called once per frame
@@ -52,14 +54,24 @@ public class InputController : Singleton<InputController>
             OnBlowPerformed();
         }
     }
-
+    private void OnEnable()
+    {
+        _playerControls.Enable();
+    }
+    private void OnDisable()
+    {
+        _playerControls.Disable();
+    }
     private void SetControls()
     {
+        inputActions = new InputSystem_Actions().asset;
         _playerControls = inputActions.FindActionMap("Player");
 
         _blowAction = _playerControls.FindAction("Blow");
         _shootAction = _playerControls.FindAction("Shoot");
         _pointAction = _playerControls.FindAction("Point");
+
+        _pauseAction = _playerControls.FindAction("Pause");
     }
 
     private void InitializeControls()
@@ -68,6 +80,7 @@ public class InputController : Singleton<InputController>
         _blowAction.canceled += OnBlowCanceled;
 
         _shootAction.performed += OnShootPerformed;
+        _pauseAction.performed += OnPause;
     }
 
     //TODO
@@ -87,16 +100,18 @@ public class InputController : Singleton<InputController>
         _blowing = false;
         Debug.Log("Blow Canceled");
     }
-
-
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         Shoot?.Invoke();
     }
-
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        LevelManager.Instance.TogglePause();
+    }
     private void OnPoint()
     {
         Vector2 screenPos = _pointAction.ReadValue<Vector2>();
         Point?.Invoke(screenPos);
     }
+
 }

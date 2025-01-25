@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8591997509528653085}
   - component: {fileID: 4921503060857701901}
   - component: {fileID: 8612834732251743110}
+  - component: {fileID: 376283541359822726}
   m_Layer: 0
   m_Name: Pufferfish
   m_TagString: Untagged
@@ -216,3 +217,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &376283541359822726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869746165528481017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9d50de4fd8a8d4ca6d595aaa013c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 256

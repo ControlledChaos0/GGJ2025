@@ -4,14 +4,20 @@ public class BubbleBlowerCursor : Singleton<BubbleBlowerCursor>
 {
     public Transform blowerPivot;
     private Animator m_animator;
+    private float blowTime = 0.1f;
+    private float blowDuration;
     // Unity Messages
     private void Awake()
     {
         InitializeSingleton();
-        m_animator = GetComponent<Animator>();
+        m_animator = GetComponent<Animator>();  
+    }
+    private void Start()
+    {
         if (blowerPivot == null)
         {
-            Debug.LogError("Please Attack Blower Gameobject to blower pivot ref!");
+            Debug.LogError("Please Attach Blower Gameobject to blower pivot ref!");
+            return;
         }
     }
     private void Update()
@@ -19,6 +25,8 @@ public class BubbleBlowerCursor : Singleton<BubbleBlowerCursor>
         transform.position = Input.mousePosition;
 
         LookAt(PlayerController.Instance.transform);
+
+        m_animator.SetBool("blowing", Time.time < blowDuration);
     }
     private void LookAt(Transform target)
     {
@@ -51,6 +59,6 @@ public class BubbleBlowerCursor : Singleton<BubbleBlowerCursor>
     }
     public void OnBlow()
     {
-        m_animator.SetTrigger("blowing");
+        blowDuration = Time.time + blowTime;
     }
 }

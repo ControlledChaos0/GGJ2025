@@ -68,6 +68,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
         Vector2 shootDir = _gunObject.transform.right;
         _gunEmitter.Fire(_shotgunWeapon, shootDir);
         _rigidbody.AddForce(_gunRecoil * -shootDir, ForceMode2D.Impulse);
+        BubbleBlowerCursor.Instance.OnShoot();
     }
 
     public void Damage()

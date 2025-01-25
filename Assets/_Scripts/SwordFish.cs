@@ -93,7 +93,7 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
         Vector3 diff = targetPos - transform.position;
         dir = diff.normalized;
         Vector3 vel = dir * m_chargeForce;
-        m_rb.AddForce(vel, ForceMode2D.Impulse);
+        m_rb.AddForce(vel * m_rb.mass, ForceMode2D.Impulse);
         float t = Vector3.Distance(transform.position, targetPos) / m_chargeForce;
         while (t > 0 && Vector3.Distance(transform.position, targetPos) > 0.01f && m_rb.linearVelocity.magnitude > 0.01f)
         {

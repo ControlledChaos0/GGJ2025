@@ -117,6 +117,7 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
     public void Damage()
     {
         // Basic Function
+        LevelManager.Instance.OnEnemyDeath();
         Destroy(gameObject);
     }
     public void OnPush()

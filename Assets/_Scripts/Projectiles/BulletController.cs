@@ -125,17 +125,16 @@ public class BulletController : MonoBehaviour
             Kill(BulletKillReason.Firework);
         } else if (hitLayers == (hitLayers | (1 << other.gameObject.layer))) { // If other is hittable
             if (isDead) return;
-            if (other.TryGetComponent<IPushable>(out IPushable p)) {
-                if (bulletData.KnockbackForce > 0) {
-                    float knockback = bulletData.KnockbackForce;
-                    if (bulletData.ScaleKnockbackBySpeed) {
-                        knockback *= movementSpeed / bulletData.Velocity;
-                    }
-                    other.attachedRigidbody.AddForce(knockback * this.movementDir, ForceMode2D.Impulse);
+            if (other.isTrigger) return;
+            if (bulletData.KnockbackForce > 0) {
+                float knockback = bulletData.KnockbackForce;
+                if (bulletData.ScaleKnockbackBySpeed) {
+                    knockback *= movementSpeed / bulletData.Velocity;
                 }
-                Kill(BulletKillReason.Hit);
+                other.attachedRigidbody.AddForce(knockback * this.movementDir, ForceMode2D.Impulse);
             }
-        } else if (other.gameObject.layer == 0) { // Layer is default
+                Kill(BulletKillReason.Hit);
+        } else if (other.gameObject.layer == 7) { // Layer is wall
             Kill(BulletKillReason.Wall);
         }
     }

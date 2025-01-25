@@ -312,6 +312,7 @@ MonoBehaviour:
   _minDistance: 2
   _maxDistance: 10
   _gunObject: {fileID: 7854238290578038286}
+  _gunRecoil: 10
   _shotgunWeapon: {fileID: 11400000, guid: db3cd2dac2e71961e94504c678f7004b, type: 2}
 --- !u!50 &1519432237143072447
 Rigidbody2D:
@@ -543,4 +544,4 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 591628962275451307, guid: 9105504ba511537ec9111223a4d39265, type: 3}
   hitLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 256

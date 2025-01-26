@@ -11,6 +11,7 @@ public class MantisShrimp : MonoBehaviour, IDamageable
 
     private ShrimpStateMachine _stateMachine;
     private Vector3 _defaultPunchScale;
+    private bool isDead;
 
     public NavMeshAgent Agent
     {
@@ -80,6 +81,9 @@ public class MantisShrimp : MonoBehaviour, IDamageable
 
     public void Damage()
     {
-        throw new System.NotImplementedException();
+        if (isDead) return;
+        isDead = true;
+        LevelManager.Instance.OnEnemyDeath();
+        Destroy(gameObject);
     }
 }

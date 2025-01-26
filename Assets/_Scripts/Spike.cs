@@ -15,8 +15,19 @@ public class Spike : MonoBehaviour
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
-    	if (other.TryGetComponent<IDamageable>(out IDamageable d)) {
+        IDamageable dparent = other.GetComponentInParent<IDamageable>();
+        IDamageable dchild = other.GetComponentInChildren<IDamageable>();
+        if (dparent != null)
+        {
+            dparent.Damage();
+        }
+        else if (other.TryGetComponent(out IDamageable d)) 
+        {
     	    d.Damage();
-    	}
+    	} 
+        else if (dchild != null)
+        {
+            dchild.Damage();
+        }
     }
 }

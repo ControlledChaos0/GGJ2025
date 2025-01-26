@@ -20,6 +20,7 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
     private Rigidbody2D m_rb;
     private Animator anim;
     private SpriteRenderer sr;
+    private bool isDead;
 
     private void Awake()
     {
@@ -130,7 +131,8 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
     }
     public void Damage()
     {
-        // Basic Function
+        if (isDead) return;
+        isDead = true;
         LevelManager.Instance.OnEnemyDeath();
         Destroy(gameObject);
     }

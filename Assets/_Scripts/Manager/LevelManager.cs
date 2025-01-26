@@ -8,6 +8,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private LevelType type;
     [SerializeField] private string nextSceneOverride = "";
     [SerializeField] private Transform enemies;
+    [SerializeField] private AudioSource deathSFX;
     private int enemyCount;
     private bool paused;
     private void Awake()
@@ -34,6 +35,7 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void TransitionToNextScene()
     {
+        Unpause();
         int index = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneOverride.Length > 0) SceneManager.LoadSceneAsync(nextSceneOverride);
         else SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
@@ -45,6 +47,7 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void BackToMainMenu()
     {
+        Unpause();
         SceneManager.LoadSceneAsync("title");
     }
     public void OnEnemyDeath()
@@ -62,6 +65,7 @@ public class LevelManager : Singleton<LevelManager>
     public void OnPlayerDeath()
     {
         UIManager.Instance.ShowDeathPanel();
+        deathSFX.Play();
     }
     public void Pause()
     {

@@ -12,4 +12,8 @@ public class TitleScreen : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + level);
     }
+    public void OnQuit()
+    {
+        Application.Quit();
+    }
 }

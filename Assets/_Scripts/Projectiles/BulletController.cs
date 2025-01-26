@@ -88,6 +88,9 @@ public class BulletController : MonoBehaviour
         if (lifetimeRemaining < 0 && bulletData.Lifetime != 0 || bulletData.Lifetime == 0 && movementSpeed < 0) {
             Kill(BulletKillReason.Timeout);
         }
+        if (bulletData.RotateSprite) {
+            _sp.transform.rotation = Quaternion.Euler(0,0,Mathf.Atan2(movementDir.y, movementDir.x) * Mathf.Rad2Deg+90);
+        }
     }
 
     public void Init(BulletData bullet, Vector3 pos, Vector2 direction, LayerMask hit) {
@@ -97,7 +100,7 @@ public class BulletController : MonoBehaviour
         _we.hitLayers = hitLayers;
         transform.position = pos;
         lifetimeRemaining = bullet.Lifetime;
-        _ao["Basic Bullet Animation"] = null;
+        _ao["BubbleBullet_Clip"] = bullet.Animation;
         _sp.enabled = true;
         _an.SetFloat(animationSpeedParameter, bulletData.AnimationSpeed);
         float sizeRand = 1f.RandomizeByPercent(bullet.SizeRandomness);

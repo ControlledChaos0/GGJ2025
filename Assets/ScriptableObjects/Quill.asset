@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Quill
   m_EditorClassIdentifier: 
   lifetime: 5
-  animation: {fileID: 0}
+  animation: {fileID: -2693619484173267399, guid: 25bbc541eb99c5314a9f7978c923488a, type: 3}
   animationSpeed: 1
-  rotateSprite: 0
+  rotateSprite: 1
   spriteScale: 1
   sizeRandomness: 0
   velocity: 5

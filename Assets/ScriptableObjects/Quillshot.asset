@@ -12,4 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f3e1297f5ea74f0bdcaa56125c679e, type: 3}
   m_Name: Quillshot
   m_EditorClassIdentifier: 
-  bursts: []
+  bursts:
+  - startTime: 0
+    bullet: {fileID: 11400000, guid: 3e095f133ac61bac3b7e13d807575c31, type: 2}
+    firingSpread: 360
+    bulletsInSpread: 10
+    spreadTimeInterval: 0
+    spreadClockwise: 0
+    spreadRandomization: 0
+    aimOffset: 0
+  - startTime: 2
+    bullet: {fileID: 11400000, guid: 3e095f133ac61bac3b7e13d807575c31, type: 2}
+    firingSpread: 360
+    bulletsInSpread: 10
+    spreadTimeInterval: 0
+    spreadClockwise: 0
+    spreadRandomization: 0
+    aimOffset: 18
+  - startTime: 4
+    bullet: {fileID: 11400000, guid: 3e095f133ac61bac3b7e13d807575c31, type: 2}
+    firingSpread: 360
+    bulletsInSpread: 10
+    spreadTimeInterval: 0
+    spreadClockwise: 0
+    spreadRandomization: 0
+    aimOffset: 0

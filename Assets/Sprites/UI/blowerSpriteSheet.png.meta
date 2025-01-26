@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85cf316e62b32f94bb9bebe71a3ef832
+guid: 5349735d09a07304daaf263850f1baef
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -123,7 +123,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 110
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -189,19 +189,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 84
-        y: 46
-        width: 68
-        height: 66
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        y: 47
+        width: 65
+        height: 64
+      alignment: 9
+      pivot: {x: 0.54483855, y: 0.6238971}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8208e7986b8e44d4da07ed00385b19bf
-      internalID: -1596211060
+      spriteID: 425b1bce16adf8660800000000000000
+      internalID: 7390365627656025380
       vertices: []
       indices: 
       edges: []
@@ -210,20 +210,20 @@ TextureImporter:
       name: blowerSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 233
-        y: 46
-        width: 68
-        height: 66
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 234
+        y: 47
+        width: 65
+        height: 64
+      alignment: 9
+      pivot: {x: 0.54483855, y: 0.6238971}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3e6d5a369dd36dc4f94cd3294e9e231e
-      internalID: 1196303969
+      spriteID: 82a83372df91ad050800000000000000
+      internalID: 5825997643032267304
       vertices: []
       indices: 
       edges: []
@@ -233,19 +233,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 46
-        width: 68
-        height: 66
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        y: 47
+        width: 65
+        height: 64
+      alignment: 9
+      pivot: {x: 0.54483855, y: 0.6238971}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a843f7f39907d4542ab0a324c2a29c2f
-      internalID: 1907951477
+      spriteID: 4841dc47fd56fd2a0800000000000000
+      internalID: -6710532909347040124
       vertices: []
       indices: 
       edges: []
@@ -254,20 +254,20 @@ TextureImporter:
       name: blowerSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 533
-        y: 46
-        width: 68
-        height: 66
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 534
+        y: 47
+        width: 65
+        height: 64
+      alignment: 9
+      pivot: {x: 0.54483855, y: 0.6238971}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a1034744ecfb4d24b8b9316bb87df0fc
-      internalID: -263946960
+      spriteID: 40992888ff30b0820800000000000000
+      internalID: 2885404382302738692
       vertices: []
       indices: 
       edges: []
@@ -277,19 +277,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 684
-        y: 46
-        width: 68
-        height: 66
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        y: 47
+        width: 65
+        height: 64
+      alignment: 9
+      pivot: {x: 0.54483855, y: 0.6238971}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d394161ce67ce0347beb6626e3d211bc
-      internalID: -2010984014
+      spriteID: e02b754685fef8c80800000000000000
+      internalID: -8318166823810387442
       vertices: []
       indices: 
       edges: []
@@ -299,19 +299,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 834
-        y: 46
-        width: 68
-        height: 66
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        y: 47
+        width: 65
+        height: 64
+      alignment: 9
+      pivot: {x: 0.54483855, y: 0.6238971}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 745f7e410e06993488adf689c399ad19
-      internalID: 703007991
+      spriteID: 67a3acb7406c61ab0800000000000000
+      internalID: -5037621410608301450
       vertices: []
       indices: 
       edges: []
@@ -321,19 +321,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 984
-        y: 46
-        width: 68
-        height: 66
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        y: 47
+        width: 65
+        height: 64
+      alignment: 9
+      pivot: {x: 0.54483855, y: 0.6238971}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 32ff13ea3af19ea419141b68977ec547
-      internalID: 1340189368
+      spriteID: a0888c0e0820e5a30800000000000000
+      internalID: 4205801854560929802
       vertices: []
       indices: 
       edges: []
@@ -342,20 +342,20 @@ TextureImporter:
       name: blowerSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 46
-        width: 67
-        height: 66
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        x: 1134
+        y: 47
+        width: 65
+        height: 64
+      alignment: 9
+      pivot: {x: 0.54483855, y: 0.6238971}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b3f3dba987553647aba7a9d5c67cea5
-      internalID: -616602790
+      spriteID: dc475eddef6ff4c4eb38ee92cce3b1cc
+      internalID: 4266616746858391672
       vertices: []
       indices: 
       edges: []
@@ -364,7 +364,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 764d62a85a442b3498004ba2b4ae23ab
+    spriteID: fc40e6e0bf98047419beb2379b6e511c
     internalID: 0
     vertices: []
     indices: 
@@ -374,14 +374,31 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      blowerSpriteSheet_0: -1596211060
-      blowerSpriteSheet_1: 1196303969
-      blowerSpriteSheet_2: 1907951477
-      blowerSpriteSheet_3: -263946960
-      blowerSpriteSheet_4: -2010984014
-      blowerSpriteSheet_5: 703007991
-      blowerSpriteSheet_6: 1340189368
-      blowerSpriteSheet_7: -616602790
+      blowerSpriteSheet_0: 7390365627656025380
+      blowerSpriteSheet_1: 5825997643032267304
+      blowerSpriteSheet_10: 2153599570553940127
+      blowerSpriteSheet_11: -226716164475900076
+      blowerSpriteSheet_12: -4285110249413944460
+      blowerSpriteSheet_13: 6782859391768485192
+      blowerSpriteSheet_14: -4696302990841106834
+      blowerSpriteSheet_15: 1807380152403864480
+      blowerSpriteSheet_16: 8914844766365317800
+      blowerSpriteSheet_17: -4718413773714007165
+      blowerSpriteSheet_18: 8565281711924340963
+      blowerSpriteSheet_19: -9205110854460950052
+      blowerSpriteSheet_2: -6710532909347040124
+      blowerSpriteSheet_20: -8671652146422204842
+      blowerSpriteSheet_21: 7225746949185356338
+      blowerSpriteSheet_22: -1070650916850954091
+      blowerSpriteSheet_23: 7335054112839002325
+      blowerSpriteSheet_24: 58882907243827833
+      blowerSpriteSheet_3: 2885404382302738692
+      blowerSpriteSheet_4: -8318166823810387442
+      blowerSpriteSheet_5: -5037621410608301450
+      blowerSpriteSheet_6: 4205801854560929802
+      blowerSpriteSheet_7: 4266616746858391672
+      blowerSpriteSheet_8: 1587959922160712875
+      blowerSpriteSheet_9: 8902485432853888478
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

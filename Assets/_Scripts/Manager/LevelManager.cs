@@ -89,7 +89,7 @@ public class LevelManager : Singleton<LevelManager>
         UIManager.Instance.Messanger.DisplayeMessage($"Defeated all Enemies!", 2f);
         yield return new WaitForSeconds(3f);
         UIManager.Instance.Messanger.DisplayeMessage($"Moving To Next Level!", 10f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         TransitionToNextScene();
     }
 }

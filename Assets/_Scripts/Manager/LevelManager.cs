@@ -15,11 +15,19 @@ public class LevelManager : Singleton<LevelManager>
     }
     private void Start()
     {
-        enemyCount = enemies.childCount;
-    }
-    public void UnlockExitDoor()
-    {
-        // Exit Door Behaviour
+        switch (type)
+        {
+            case LevelType.Puzzle:
+                break;
+            case LevelType.Combat:
+                enemyCount = enemies.childCount;
+                UIManager.Instance.EnemyTracker.Show();
+                UIManager.Instance.EnemyTracker.UpdateText(enemyCount.ToString());
+                break;
+            case LevelType.Boss:
+                break;
+        }
+        
     }
     public void TransitionToNextScene()
     {
@@ -36,10 +44,15 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void OnEnemyDeath()
     {
-        if (--enemyCount <= 0)
+        if (type == LevelType.Puzzle) return;
+        enemyCount--;
+        UIManager.Instance.EnemyTracker.UpdateText(enemyCount.ToString());
+        if (enemyCount <= 0)
         {
-            UnlockExitDoor();
+            UIManager.Instance.EnemyTracker.UpdateText("0");
+            CombatLevelEndBehaviour();
         }
+        
     }
     public void OnPlayerDeath()
     {
@@ -63,6 +76,10 @@ public class LevelManager : Singleton<LevelManager>
     {
         if (paused) Unpause();
         else Pause();
+    }
+    private void CombatLevelEndBehaviour()
+    {
+
     }
 }
 

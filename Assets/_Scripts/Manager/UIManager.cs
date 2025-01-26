@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using TMPro;
 
@@ -7,12 +8,16 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private DeathPanel m_deathPanel;
     [SerializeField] private PausePanel m_pausePanel;
     [SerializeField] private TextMeshProUGUI ammoText;
+    [field: SerializeField] public EnemyTracker EnemyTracker { get; private set; }
+    // private BossHealthTracker
+    [SerializeField] private TextMeshProUGUI m_messageText;
 
     private void Awake()
     {
         InitializeSingleton();
         m_deathPanel.Hide();
         m_pausePanel.Hide();
+        EnemyTracker.Hide();
     }
     public void ShowPausePanel()
     {
@@ -49,5 +54,17 @@ public class UIManager : Singleton<UIManager>
             ammoText.SetText($"Ammo: {ammo}");
 
         }
+    }
+    public void OnLevelCombat()
+    {
+        
+    }
+    public void OnLevelPuzzle()
+    {
+
+    }
+    public void OnLevelBoss()
+    {
+
     }
 }

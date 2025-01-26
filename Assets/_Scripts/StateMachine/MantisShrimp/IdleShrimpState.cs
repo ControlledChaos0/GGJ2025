@@ -18,8 +18,8 @@ public class IdleShrimpState : IState
     private const float TimeBetweenChecksClose = 0.5f;
     private const float CoinFlipMult = 1.15f;
 
-    private const float Speed = 3.5f;
-    private const float Acceleration = 8.0f;
+    private const float Speed = 5f;
+    private const float Acceleration = 15.0f;
     private const float TimeToNormalize = 1.5f;
 
     public IdleShrimpState(MantisShrimp shrimp)

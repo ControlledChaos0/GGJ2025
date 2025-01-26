@@ -34,6 +34,7 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void TransitionToNextScene()
     {
+        Unpause();
         int index = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneOverride.Length > 0) SceneManager.LoadSceneAsync(nextSceneOverride);
         else SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
@@ -45,6 +46,7 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void BackToMainMenu()
     {
+        Unpause();
         SceneManager.LoadSceneAsync("title");
     }
     public void OnEnemyDeath()

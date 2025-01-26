@@ -331,12 +331,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1519432237143072447}
   _minPower: 1
-  _maxPower: 10
+  _maxPower: 15
   _minDistance: 2
   _maxDistance: 10
   _gunObject: {fileID: 7854238290578038286}
   _gunSprite: {fileID: 7840457327360575839}
-  _gunRecoil: 10
+  _gunRecoil: 8
   _shotgunWeapon: {fileID: 11400000, guid: db3cd2dac2e71961e94504c678f7004b, type: 2}
   maxAmmo: 2
   timeToHideGun: 0.4

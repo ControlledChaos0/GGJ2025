@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 3080131672842986977}
   - component: {fileID: 4393176345681140646}
   - component: {fileID: 7169891811620413537}
+  - component: {fileID: 3724394216708942567}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -168,6 +169,28 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.06, y: 0}
   m_Radius: 0.62
+--- !u!95 &3724394216708942567
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2422374242542783383}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0e9ce1d8db567e479105fb4fb3d265c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4078143410071423637
 GameObject:
   m_ObjectHideFlags: 0

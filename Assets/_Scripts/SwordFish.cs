@@ -29,8 +29,8 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
     }
     private void Update()
     {
-        var dir = PlayerController.Instance.transform.position - transform.position;
-        sr.flipX = (dir.x < 0)? false : true;
+        var dir = transform.up;
+        anim.SetBool("FaceLeft", dir.x < 0);
         if (Mathf.Atan(dir.y / Mathf.Abs(dir.x)) * Mathf.Rad2Deg <  -45f) {
             anim.SetBool("FaceSide", false);
         } else {
@@ -71,9 +71,6 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle - 90f, Vector3.forward), Time.deltaTime * 10f);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle - 90f, Vector3.forward), 45 * Time.fixedDeltaTime);
-
-        
-
     }
     public void Charge(Transform target)
     {

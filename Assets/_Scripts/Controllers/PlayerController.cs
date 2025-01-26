@@ -19,7 +19,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     [SerializeField] private float _gunRecoil = 5;
     [SerializeField] private Weapon _shotgunWeapon;
     [SerializeField] private int maxAmmo = 2;
-    [SerializeField] private float timeToHideGun = 1f;
+    [SerializeField] private float timeToHideGun = 0.4f;
     private int ammo;
     [SerializeField] private float reloadTime = 2f;
 

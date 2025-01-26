@@ -14,6 +14,7 @@ public class Pufferfish : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
     private Animator anim;
     private Vector2 dirToPlayer;
+    private bool isDead;
 
     // Parameters touched by OnTriggerEnter
     private bool _CheckForPlayer = false;
@@ -76,9 +77,10 @@ public class Pufferfish : MonoBehaviour, IDamageable
     }
 
     public void Damage() {
-        Debug.Log("Damaged?");
-        Destroy(gameObject);
+        if (isDead) return;
+        isDead = true;
         LevelManager.Instance.OnEnemyDeath();
+        Destroy(gameObject);
     }
 
     private void Expand() {

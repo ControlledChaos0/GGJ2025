@@ -316,7 +316,7 @@ MonoBehaviour:
   _gunRecoil: 10
   _shotgunWeapon: {fileID: 11400000, guid: db3cd2dac2e71961e94504c678f7004b, type: 2}
   maxAmmo: 2
-  timeToHideGun: 1
+  timeToHideGun: 0.4
   reloadTime: 2
 --- !u!50 &1519432237143072447
 Rigidbody2D:

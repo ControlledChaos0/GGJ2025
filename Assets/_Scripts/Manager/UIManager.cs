@@ -1,10 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
     [Header("UI References")]
     [SerializeField] private DeathPanel m_deathPanel;
     [SerializeField] private PausePanel m_pausePanel;
+    [SerializeField] private TextMeshProUGUI ammoText;
 
     private void Awake()
     {
@@ -27,5 +29,25 @@ public class UIManager : Singleton<UIManager>
     {
         m_deathPanel.Show();
         BubbleBlowerCursor.Instance.gameObject.SetActive(false);
+    }
+
+    public void ShowAmmo() 
+    {
+        ammoText.gameObject.SetActive(true);
+    }
+
+    public void HideAmmo() 
+    {
+        ammoText.gameObject.SetActive(false);
+    }
+
+    public void ChangeAmmo(int ammo) 
+    {
+        if (ammo == 0) {
+            ammoText.SetText("Reloading");
+        } else {
+            ammoText.SetText($"Ammo: {ammo}");
+
+        }
     }
 }

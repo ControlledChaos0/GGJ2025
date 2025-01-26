@@ -294,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1519432237143072447}
   _minPower: 1
-  _maxPower: 15
+  _maxPower: 45
   _minDistance: 2
   _maxDistance: 10
   _gunObject: {fileID: 7854238290578038286}
@@ -316,7 +316,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1

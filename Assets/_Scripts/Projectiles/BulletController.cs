@@ -133,7 +133,7 @@ public class BulletController : MonoBehaviour
                     knockback *= movementSpeed / bulletData.Velocity;
                 }
                 Vector2 force = knockback * this.movementDir;
-                NavMeshAgent agent = other.transform.parent.gameObject.GetComponent<NavMeshAgent>();
+                NavMeshAgent agent = other.GetComponentInParent<NavMeshAgent>();
                 
                 if (agent != null)
                 {

@@ -8,4 +8,8 @@ public class TitleScreen : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(firstScene);
     }
+    public void PlayLevel(int level)
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + level);
+    }
 }

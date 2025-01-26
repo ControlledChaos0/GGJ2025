@@ -12,6 +12,7 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
     [SerializeField] private float m_chargeDrag = 1f;
     [SerializeField] private float m_brakingDrag = 5f;
     [SerializeField] private LayerMask aimMask;
+    [SerializeField] private AudioSource chargeSFX;
     private bool inSight;
     private bool chargeStarted = false;
     private bool inCharge = false;
@@ -98,6 +99,7 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
             time -= Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
+        chargeSFX.Play();
         inCharge = true;
         //Impulse Charging(v1)
         //dir = target.position - transform.position;
@@ -107,6 +109,7 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
         Vector3 diff = targetPos - transform.position;
         dir = diff.normalized;
         Vector3 vel = dir * m_chargeForce;
+
         m_rb.AddForce(vel * m_rb.mass, ForceMode2D.Impulse);
         float t = Vector3.Distance(transform.position, targetPos) / m_chargeForce;
         while (t > 0 && Vector3.Distance(transform.position, targetPos) > 0.01f && m_rb.linearVelocity.magnitude > 0.01f)

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 982a1a159fd735440abbbed70abdba4d
+guid: 1cab252b7561a7e41bd5bd9fa3d60537
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -656432522462663494
-    second: PufferFish_deflated_side_0
+      213: 1071728824260333658
+    second: Seamantis_side_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PufferFish_deflated_side_0
+      name: Seamantis_side_0
       rect:
         serializedVersion: 2
-        x: 357
-        y: 302
-        width: 456
-        height: 452
+        x: 296
+        y: 212
+        width: 379
+        height: 463
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: abc69974912e3e6f0800000000000000
-      internalID: -656432522462663494
+      spriteID: a509599ffab8fde00800000000000000
+      internalID: 1071728824260333658
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      PufferFish_deflated_side_0: -656432522462663494
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Porcupineevil_Side_0: -5962256523010417275
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

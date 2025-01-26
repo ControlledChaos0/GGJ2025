@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public enum BulletKillReason {
     Timeout,
@@ -131,7 +132,18 @@ public class BulletController : MonoBehaviour
                 if (bulletData.ScaleKnockbackBySpeed) {
                     knockback *= movementSpeed / bulletData.Velocity;
                 }
-                other.attachedRigidbody.AddForce(knockback * this.movementDir, ForceMode2D.Impulse);
+                Vector2 force = knockback * this.movementDir;
+                NavMeshAgent agent = other.transform.parent.gameObject.GetComponent<NavMeshAgent>();
+                
+                if (agent != null)
+                {
+                    float mass = 1.0f;
+                    agent.velocity += (Vector3)force / mass;
+                }
+                else
+                {
+                    other.attachedRigidbody.AddForce(force, ForceMode2D.Impulse);
+                }
             }
                 Kill(BulletKillReason.Hit);
         } else if (other.gameObject.layer == 7) { // Layer is wall

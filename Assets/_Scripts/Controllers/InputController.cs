@@ -8,12 +8,9 @@ using UnityEngine.InputSystem.UI;
 
 public class InputController : Singleton<InputController>
 {
-    
-
-    [SerializeField] private float _pressTime;
+    [SerializeField] private InputActionAsset inputActions;
 
     private InputActionMap _playerControls;
-    private InputActionAsset inputActions;
 
     private InputAction _pauseAction;
     private InputAction _pointAction;
@@ -32,8 +29,6 @@ public class InputController : Singleton<InputController>
         InitializeSingleton();
 
         SetControls();
-        InitializeControls();
-        inputActions.Enable();
     }
     //// Start is called before the first frame update
     void Start()
@@ -57,14 +52,15 @@ public class InputController : Singleton<InputController>
     private void OnEnable()
     {
         _playerControls.Enable();
+        ActivateControls();
     }
     private void OnDisable()
     {
+        DeactivateControls();
         _playerControls.Disable();
     }
     private void SetControls()
     {
-        inputActions = new InputSystem_Actions().asset;
         _playerControls = inputActions.FindActionMap("Player");
 
         _blowAction = _playerControls.FindAction("Blow");
@@ -74,13 +70,22 @@ public class InputController : Singleton<InputController>
         _pauseAction = _playerControls.FindAction("Pause");
     }
 
-    private void InitializeControls()
+    private void ActivateControls()
     {
         _blowAction.started += OnBlowStarted;
         _blowAction.canceled += OnBlowCanceled;
 
         _shootAction.performed += OnShootPerformed;
         _pauseAction.performed += OnPause;
+    }
+
+    private void DeactivateControls()
+    {
+        _blowAction.started -= OnBlowStarted;
+        _blowAction.canceled -= OnBlowCanceled;
+
+        _shootAction.performed -= OnShootPerformed;
+        _pauseAction.performed -= OnPause;
     }
 
     //TODO

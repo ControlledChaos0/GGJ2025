@@ -25,3 +25,11 @@ MonoBehaviour:
     weight: 1
   - sprite: {fileID: 707935078014162232, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
     weight: 1
+  - sprite: {fileID: -5130656011133892827, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    weight: 0.02
+  - sprite: {fileID: -969919280057303968, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    weight: 0.02
+  - sprite: {fileID: -6932689361849204454, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    weight: 0.02
+  - sprite: {fileID: -2062637821052713637, guid: cf8131b181c672fcaabc18992d818adc, type: 3}
+    weight: 0.02

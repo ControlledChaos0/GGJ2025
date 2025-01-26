@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : Singleton<PlayerController>, IDamageable
 {
@@ -16,6 +17,9 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     private WeaponEmitter _gunEmitter;
     [SerializeField] private float _gunRecoil = 5;
     [SerializeField] private Weapon _shotgunWeapon;
+    [SerializeField] private int maxAmmo = 2;
+    private int ammo;
+    [SerializeField] private float reloadTime = 2f;
 
 
     private const float Limit = 6.0f;
@@ -24,6 +28,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     void Awake()
     {
         InitializeSingleton();
+        ammo = maxAmmo;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,6 +40,9 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
         CameraController.Instance.Blow += OnBlow;
         CameraController.Instance.Point += OnPoint;
         InputController.Instance.Shoot += OnShoot;
+
+        UIManager.Instance.ShowAmmo();
+        UIManager.Instance.ChangeAmmo(ammo);
 
         _gunEmitter = _gunObject.GetComponentInChildren<WeaponEmitter>();
     }
@@ -65,10 +73,25 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
 
     private void OnShoot()
     {
-        Vector2 shootDir = _gunObject.transform.right;
-        _gunEmitter.Fire(_shotgunWeapon, shootDir);
-        _rigidbody.AddForce(_gunRecoil * -shootDir, ForceMode2D.Impulse);
-        BubbleBlowerCursor.Instance.OnShoot();
+        if (ammo > 0) {
+            ammo -= 1;
+            UIManager.Instance.ChangeAmmo(ammo);
+            Vector2 shootDir = _gunObject.transform.right;
+            _gunEmitter.Fire(_shotgunWeapon, shootDir);
+            _rigidbody.AddForce(_gunRecoil * -shootDir, ForceMode2D.Impulse);
+            BubbleBlowerCursor.Instance.OnShoot();
+            if (ammo == 0) {
+                StartCoroutine(Reload());
+            }
+        }
+
+        
+    }
+
+    private IEnumerator Reload() {
+        yield return new WaitForSeconds(reloadTime);
+        ammo = maxAmmo;
+        UIManager.Instance.ChangeAmmo(ammo);
     }
 
     public void Damage()

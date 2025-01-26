@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/MAIN/level3.unity
     guid: b145729500671d34695da0cd45fc94a7
   - enabled: 1
-    path: Assets/_Scenes/MAIN/level4.unity
+    path: Assets/_Scenes/MAIN/murder.unity
     guid: dd167ea3e90680b469733b8724d9521a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

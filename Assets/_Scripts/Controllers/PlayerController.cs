@@ -41,8 +41,8 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
         CameraController.Instance.Point += OnPoint;
         InputController.Instance.Shoot += OnShoot;
 
-        UIManager.Instance.ShowAmmo();
-        UIManager.Instance.ChangeAmmo(ammo);
+        UIManager.Instance.AmmoDisplay.Show();
+        UIManager.Instance.AmmoDisplay.ChangeAmmo(ammo);
 
         _gunEmitter = _gunObject.GetComponentInChildren<WeaponEmitter>();
     }
@@ -75,7 +75,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     {
         if (ammo > 0) {
             ammo -= 1;
-            UIManager.Instance.ChangeAmmo(ammo);
+            UIManager.Instance.AmmoDisplay.ChangeAmmo(ammo);
             Vector2 shootDir = _gunObject.transform.right;
             _gunEmitter.Fire(_shotgunWeapon, shootDir);
             _rigidbody.AddForce(_gunRecoil * -shootDir, ForceMode2D.Impulse);
@@ -91,7 +91,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     private IEnumerator Reload() {
         yield return new WaitForSeconds(reloadTime);
         ammo = maxAmmo;
-        UIManager.Instance.ChangeAmmo(ammo);
+        UIManager.Instance.AmmoDisplay.ChangeAmmo(ammo);
     }
 
     public void Damage()

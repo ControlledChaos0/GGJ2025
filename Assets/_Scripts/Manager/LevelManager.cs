@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,10 +19,12 @@ public class LevelManager : Singleton<LevelManager>
         switch (type)
         {
             case LevelType.Puzzle:
+                UIManager.Instance.Messanger.DisplayeMessage($"Escape to the end");
                 break;
             case LevelType.Combat:
                 enemyCount = enemies.childCount;
                 UIManager.Instance.EnemyTracker.Show();
+                UIManager.Instance.Messanger.DisplayeMessage($"Kill {enemyCount} enemies!");
                 UIManager.Instance.EnemyTracker.UpdateText(enemyCount.ToString());
                 break;
             case LevelType.Boss:
@@ -79,7 +82,15 @@ public class LevelManager : Singleton<LevelManager>
     }
     private void CombatLevelEndBehaviour()
     {
-
+        StartCoroutine(CombatEndThread());
+    }
+    private IEnumerator CombatEndThread()
+    {
+        UIManager.Instance.Messanger.DisplayeMessage($"Defeated all Enemies!", 2f);
+        yield return new WaitForSeconds(3f);
+        UIManager.Instance.Messanger.DisplayeMessage($"Moving To Next Level!", 10f);
+        yield return new WaitForSeconds(1f);
+        TransitionToNextScene();
     }
 }
 

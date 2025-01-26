@@ -7,10 +7,10 @@ public class UIManager : Singleton<UIManager>
     [Header("UI References")]
     [SerializeField] private DeathPanel m_deathPanel;
     [SerializeField] private PausePanel m_pausePanel;
-    [SerializeField] private TextMeshProUGUI ammoText;
     [field: SerializeField] public EnemyTracker EnemyTracker { get; private set; }
+    [field: SerializeField] public AmmoDisplay AmmoDisplay { get; private set; }
+    [field: SerializeField] public MessageUI Messanger { get; private set; }
     // private BossHealthTracker
-    [SerializeField] private TextMeshProUGUI m_messageText;
 
     private void Awake()
     {
@@ -34,26 +34,6 @@ public class UIManager : Singleton<UIManager>
     {
         m_deathPanel.Show();
         BubbleBlowerCursor.Instance.gameObject.SetActive(false);
-    }
-
-    public void ShowAmmo() 
-    {
-        ammoText.gameObject.SetActive(true);
-    }
-
-    public void HideAmmo() 
-    {
-        ammoText.gameObject.SetActive(false);
-    }
-
-    public void ChangeAmmo(int ammo) 
-    {
-        if (ammo == 0) {
-            ammoText.SetText("Reloading");
-        } else {
-            ammoText.SetText($"Ammo: {ammo}");
-
-        }
     }
     public void OnLevelCombat()
     {

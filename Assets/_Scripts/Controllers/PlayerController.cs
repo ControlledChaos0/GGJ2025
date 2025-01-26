@@ -21,10 +21,15 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     private int ammo;
     [SerializeField] private float reloadTime = 2f;
 
-
     private const float Limit = 6.0f;
     private float a;
     private float b;
+
+    public Rigidbody2D Rigidbody
+    {
+        get => _rigidbody;
+    }
+
     void Awake()
     {
         InitializeSingleton();
@@ -36,7 +41,21 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     {
         b = 6 / ((_maxDistance - _minDistance) / 2.0f);
         a = -b * ((_maxDistance + _minDistance) / 2.0f);
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void OnEnable()
+    {
+        CoroutineUtils.ExecuteAfterEndOfFrame(Enable, this);
+    }
+
+    private void Enable()
+    {
         CameraController.Instance.Blow += OnBlow;
         CameraController.Instance.Point += OnPoint;
         InputController.Instance.Shoot += OnShoot;
@@ -47,10 +66,11 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
         _gunEmitter = _gunObject.GetComponentInChildren<WeaponEmitter>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        
+        CameraController.Instance.Blow -= OnBlow;
+        CameraController.Instance.Point -= OnPoint;
+        InputController.Instance.Shoot -= OnShoot;
     }
 
     private void OnBlow(Vector2 worldPos)

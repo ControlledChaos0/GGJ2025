@@ -16,14 +16,30 @@ public class CameraController : Singleton<CameraController>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InputController.Instance.Blow += OnBlow;
-        InputController.Instance.Point += OnPoint;
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    void OnEnable()
+    {
+        CoroutineUtils.ExecuteAfterEndOfFrame(Enable, this);
+    }
+
+    private void Enable()
+    {
+        InputController.Instance.Blow += OnBlow;
+        InputController.Instance.Point += OnPoint;
+    }
+
+    void OnDisable()
+    {
+        InputController.Instance.Blow -= OnBlow;
+        InputController.Instance.Point -= OnPoint;
     }
 
     private void OnBlow(Vector2 screenPos)

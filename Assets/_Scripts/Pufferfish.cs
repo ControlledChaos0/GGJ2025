@@ -35,6 +35,8 @@ public class Pufferfish : MonoBehaviour, IDamageable
     void FixedUpdate()
     {
         // Controlling rotation
+        dirToPlayer = player.transform.position - transform.position;
+
         gameObject.transform.eulerAngles = new Vector3(0, ((player.transform.position - transform.position).x < 0)? 0 : 180f, 0);
         if (Mathf.Atan(dirToPlayer.y / Mathf.Abs(dirToPlayer.x)) * Mathf.Rad2Deg <  -45f) {
             anim.SetBool("FaceSide", false);
@@ -43,7 +45,6 @@ public class Pufferfish : MonoBehaviour, IDamageable
         }
 
         // Control Movement
-        dirToPlayer = player.transform.position - transform.position;
         _CheckForPlayer = (Vector3.Distance(player.transform.position, transform.position) <= range);
         if (_CheckForPlayer) {
 

@@ -14,25 +14,20 @@ public class Pufferfish : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
     private Animator anim;
     private Vector2 dirToPlayer;
-    private SpriteRenderer sr;
 
     // Parameters touched by OnTriggerEnter
     private bool _CheckForPlayer = false;
-    private bool _Expanding;
     private bool _FacingBelow;
-    private bool _Expanded;
     
 
     void Awake() 
     {
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
     }
 
     void Start() {
         player = PlayerController.Instance.gameObject;
-        sr.sprite = otherSprite;
     }
 
     // Update is called once per frame
@@ -41,20 +36,9 @@ public class Pufferfish : MonoBehaviour, IDamageable
         // Controlling rotation
         gameObject.transform.eulerAngles = new Vector3(0, ((player.transform.position - transform.position).x < 0)? 0 : 180f, 0);
         if (Mathf.Atan(dirToPlayer.y / Mathf.Abs(dirToPlayer.x)) * Mathf.Rad2Deg <  -45f) {
-            if (_Expanded) {
-                anim.Play("downBig");
-            } else {
-                anim.Play("down");
-            }
-            
-            // sr.sprite = belowSprite;
+            anim.SetBool("FaceSide", false);
         } else {
-            if (_Expanded) {
-                anim.Play("sideBig");
-            } else {
-                anim.Play("side");
-            }
-            // sr.sprite = otherSprite;
+            anim.SetBool("FaceSide", true);
         }
 
         // Control Movement
@@ -63,15 +47,14 @@ public class Pufferfish : MonoBehaviour, IDamageable
         if (_CheckForPlayer) {
 
             RaycastHit2D ray = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), dirToPlayer, Mathf.Infinity, aimMask);
-            // Debug.DrawRay(transform.position, dirToPlayer * 10);
             if (ray.collider != null && LayerMask.LayerToName(ray.collider.gameObject.layer).Equals("Player")) {
                 MoveTowardsPlayer();
-                if (!_Expanding && (Vector3.Distance(player.transform.position, transform.position) <= 4)) {
+                if (!anim.GetBool("Inflated") && (Vector3.Distance(player.transform.position, transform.position) <= 4)) {
                     Expand();
                 }
             }
 
-        } else if (_Expanding) {
+        } else if (anim.GetBool("Inflated")) {
             Shrink();
         }
 
@@ -100,14 +83,12 @@ public class Pufferfish : MonoBehaviour, IDamageable
 
     private void Expand() {
         anim.Play("Expand");
-        _Expanding = true;
-        _Expanded = true;
+        anim.SetBool("Inflated", true);
     }
 
     private void Shrink() {
         anim.Play("Shrink");
-        _Expanding = false;
-        _Expanded = false;
+        anim.SetBool("Inflated", false);
     }
 
     private IEnumerator ExpandRoutine() {

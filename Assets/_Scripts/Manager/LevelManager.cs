@@ -84,6 +84,8 @@ public class LevelManager : Singleton<LevelManager>
     }
     private void CombatLevelEndBehaviour()
     {
+        PlayerController.Instance.Rigidbody.linearVelocity = Vector2.zero;
+        PlayerController.Instance.enabled = false;
         StartCoroutine(CombatEndThread());
     }
     private IEnumerator CombatEndThread()

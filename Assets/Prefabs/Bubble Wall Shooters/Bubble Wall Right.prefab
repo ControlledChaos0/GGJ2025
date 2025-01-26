@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: direction.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3285199050566784619, guid: a2072e63901960c68a3a01d086d3dc22, type: 3}
+      propertyPath: fireInterval
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3293799997746360054, guid: a2072e63901960c68a3a01d086d3dc22, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.179
@@ -26,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5828851936007963740, guid: a2072e63901960c68a3a01d086d3dc22, type: 3}
       propertyPath: m_Name
-      value: Bubble Wall Right Variant
+      value: Bubble Wall Right
       objectReference: {fileID: 0}
     - target: {fileID: 8079516986422182597, guid: a2072e63901960c68a3a01d086d3dc22, type: 3}
       propertyPath: m_LocalPosition.x

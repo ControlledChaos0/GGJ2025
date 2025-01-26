@@ -9020,6 +9020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pufferfish (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3869746165528481017, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4921503060857701901, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
       propertyPath: m_Radius
       value: 10
@@ -9201,6 +9205,30 @@ PrefabInstance:
     - target: {fileID: 3869746165528481017, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
       propertyPath: m_Name
       value: Pufferfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011496440646723315, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011496440646723315, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4011496440646723315, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106821436569584401, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448522740709899538, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448522740709899538, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6448522740709899538, guid: 11cb0ed31134e8a429fd2158888a065e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21964,7 +21992,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 951564491245333219, guid: f8c6c52521bce2d4a9d78306378094f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2386482
+      value: 3.2354777
       objectReference: {fileID: 0}
     - target: {fileID: 951564491245333219, guid: f8c6c52521bce2d4a9d78306378094f9, type: 3}
       propertyPath: m_LocalPosition.y

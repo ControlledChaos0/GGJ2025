@@ -14,10 +14,12 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
 
     [Header("Gun")] 
     [SerializeField] private GameObject _gunObject;
+    [SerializeField] private GameObject _gunSprite;
     private WeaponEmitter _gunEmitter;
     [SerializeField] private float _gunRecoil = 5;
     [SerializeField] private Weapon _shotgunWeapon;
     [SerializeField] private int maxAmmo = 2;
+    [SerializeField] private float timeToHideGun = 0.4f;
     private int ammo;
     [SerializeField] private float reloadTime = 2f;
 
@@ -30,6 +32,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
         get => _rigidbody;
     }
 
+    private float hidingGunCooldownPoint;
     void Awake()
     {
         InitializeSingleton();
@@ -46,7 +49,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     // Update is called once per frame
     void Update()
     {
-        
+        _gunSprite.SetActive(Time.time < hidingGunCooldownPoint);
     }
 
     void OnEnable()
@@ -103,6 +106,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
             if (ammo == 0) {
                 StartCoroutine(Reload());
             }
+            hidingGunCooldownPoint = Time.time + timeToHideGun;
         }
 
         

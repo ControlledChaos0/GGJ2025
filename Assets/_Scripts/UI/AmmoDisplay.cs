@@ -4,10 +4,10 @@ using UnityEngine;
 public class AmmoDisplay : Panel
 {
     [SerializeField] private GameObject[] m_shells;
-    [SerializeField] private TextMeshProUGUI m_text;
+    [SerializeField] private GameObject rotatingGear;
     private void Start()
     {
-        m_text.SetText("");
+        rotatingGear.SetActive(false);
     }
 
     public void ChangeAmmo(int ammo)
@@ -17,7 +17,7 @@ public class AmmoDisplay : Panel
         {
             go.SetActive(m-- > 0);
         }
-        m_text.SetText(ammo == 0 ? "Reloading..." : "");
+        rotatingGear.SetActive(ammo == 0);
     }
 
     public override void Hide()

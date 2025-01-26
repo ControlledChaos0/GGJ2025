@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerBubbleBullet
   m_EditorClassIdentifier: 
   lifetime: 0
-  animation: {fileID: 7400000, guid: ca9e62bbba40d50f9a874cdd0f20939b, type: 2}
+  animation: {fileID: -5449906441206672441, guid: 35911124ad49f54f48b6368e62a65919, type: 3}
   animationSpeed: 1
   rotateSprite: 0
   spriteScale: 0.3

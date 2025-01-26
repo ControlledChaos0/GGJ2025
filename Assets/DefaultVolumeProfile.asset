@@ -65,7 +65,7 @@ MonoBehaviour:
           outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0.60944843
           inSlope: 1
           outSlope: 1
           tangentMode: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
           outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0.50782216
           inSlope: 1
           outSlope: 1
           tangentMode: 0
@@ -204,10 +204,10 @@ MonoBehaviour:
   active: 1
   type:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 8
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.389
   response:
     m_OverrideState: 1
     m_Value: 0.8
@@ -353,7 +353,7 @@ MonoBehaviour:
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   highlights:
     m_OverrideState: 1
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_Value: {r: 0.8666998, g: 0.8666998, b: 0.8666998, a: 1}
   balance:
     m_OverrideState: 1
     m_Value: 0
@@ -631,10 +631,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -38.6
   tint:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -100
 --- !u!114 &3460444317416099510
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -745,7 +745,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 57
 --- !u!114 &8549655192814258499
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -767,7 +767,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.406
   smoothness:
     m_OverrideState: 1
     m_Value: 0.2

@@ -18,12 +18,26 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
     private float cooldownTime;
     private Coroutine chargeCoroutine;
     private Rigidbody2D m_rb;
+    private Animator anim;
+    private SpriteRenderer sr;
+    private bool isDead;
+
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
+        sr = GetComponentInChildren<SpriteRenderer>();
     }
     private void Update()
     {
+        var dir = transform.up;
+        anim.SetBool("FaceLeft", dir.x < 0);
+        if (Mathf.Atan(dir.y / Mathf.Abs(dir.x)) * Mathf.Rad2Deg <  -45f) {
+            anim.SetBool("FaceSide", false);
+        } else {
+            anim.SetBool("FaceSide", true);
+        }
+        // Debug.Log("HEY I DO THINGS");
         ChargeDetection();
     }
     private void ChargeDetection()
@@ -32,10 +46,10 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
         Vector2 direction = PlayerController.Instance.transform.position - transform.position;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity, aimMask.value);
         Debug.DrawRay(transform.position, direction);
-        Debug.Log(hit.collider);
+        // Debug.Log(hit.collider);
         if (hit && hit.collider.TryGetComponent(out PlayerController pc))
         {
-            Debug.Log(pc.transform);
+            // Debug.Log(pc.transform);
             LookAt(pc.transform);  
             if (!inSight)
             {
@@ -57,7 +71,7 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
         var dir = target.position - transform.position;
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle - 90f, Vector3.forward), Time.deltaTime * 10f);
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle - 90f, Vector3.forward), 45 * Time.fixedDeltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle - 90f, Vector3.forward), 45 * Time.fixedDeltaTime);
     }
     public void Charge(Transform target)
     {
@@ -117,7 +131,8 @@ public class SwordFish : MonoBehaviour, IDamageable, IPushable
     }
     public void Damage()
     {
-        // Basic Function
+        if (isDead) return;
+        isDead = true;
         LevelManager.Instance.OnEnemyDeath();
         Destroy(gameObject);
     }

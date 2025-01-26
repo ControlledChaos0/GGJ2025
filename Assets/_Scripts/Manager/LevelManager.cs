@@ -6,7 +6,7 @@ public class LevelManager : Singleton<LevelManager>
 {
     [Header("Level Specifcations")]
     [SerializeField] private LevelType type;
-    [SerializeField] private string nextScene;
+    [SerializeField] private string nextSceneOverride = "";
     [SerializeField] private Transform enemies;
     private int enemyCount;
     private bool paused;
@@ -34,7 +34,9 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void TransitionToNextScene()
     {
-        SceneManager.LoadSceneAsync(nextScene);
+        int index = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneOverride.Length > 0) SceneManager.LoadSceneAsync(nextSceneOverride);
+        else SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void RestartLevel()
     {
@@ -82,6 +84,8 @@ public class LevelManager : Singleton<LevelManager>
     }
     private void CombatLevelEndBehaviour()
     {
+        PlayerController.Instance.Rigidbody.linearVelocity = Vector2.zero;
+        PlayerController.Instance.enabled = false;
         StartCoroutine(CombatEndThread());
     }
     private IEnumerator CombatEndThread()
@@ -89,7 +93,7 @@ public class LevelManager : Singleton<LevelManager>
         UIManager.Instance.Messanger.DisplayeMessage($"Defeated all Enemies!", 2f);
         yield return new WaitForSeconds(3f);
         UIManager.Instance.Messanger.DisplayeMessage($"Moving To Next Level!", 10f);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         TransitionToNextScene();
     }
 }

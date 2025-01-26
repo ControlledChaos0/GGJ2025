@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/MAIN/fanlevel.unity
     guid: 8f938173b07621a4c8ec65506a47e81f
   - enabled: 1
+    path: Assets/_Scenes/MAIN/bubblepop.unity
+    guid: 840f386f4fef7b04684ff341b47c9fef
+  - enabled: 1
     path: Assets/_Scenes/MAIN/mantisLandmark.unity
     guid: 6b11d5a798b8ec74a99a4c3b47473f9b
   m_configObjects:

@@ -29,8 +29,6 @@ public class RandomTile : TileBase
 
         float rand = Mathf.Abs(Mathf.Sin(Vector2.Dot(new Vector2(position.x+0.1242f, position.y+6.3269f),new Vector2(12.9898f,78.233f)))*43758.5453123f) % 1 * sum;
 
-        Debug.Log("Rand: " + rand);
-
         Sprite selected = null;
         foreach (TileWeight tile in tiles) {
             if (rand < tile.weight) {

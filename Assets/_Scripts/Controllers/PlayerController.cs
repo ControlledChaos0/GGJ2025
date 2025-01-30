@@ -22,6 +22,7 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
     [SerializeField] private float timeToHideGun = 0.4f;
     private int ammo;
     [SerializeField] private float reloadTime = 2f;
+    private bool gunDisabled;
 
     private const float Limit = 6.0f;
     private float a;
@@ -63,8 +64,11 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
         CameraController.Instance.Point += OnPoint;
         InputController.Instance.Shoot += OnShoot;
 
-        UIManager.Instance.AmmoDisplay.Show();
-        UIManager.Instance.AmmoDisplay.ChangeAmmo(ammo);
+        if (!gunDisabled)
+        {
+            UIManager.Instance.AmmoDisplay.Show();
+            UIManager.Instance.AmmoDisplay.ChangeAmmo(ammo);
+        }
 
         _gunEmitter = _gunObject.GetComponentInChildren<WeaponEmitter>();
     }
@@ -75,7 +79,17 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
         CameraController.Instance.Point -= OnPoint;
         InputController.Instance.Shoot -= OnShoot;
     }
-
+    public void EnableGun()
+    {
+        gunDisabled = false;
+        UIManager.Instance.AmmoDisplay.Show();
+        UIManager.Instance.AmmoDisplay.ChangeAmmo(ammo);
+    }
+    public void DisableGun()
+    {
+        gunDisabled = true;
+        UIManager.Instance.AmmoDisplay.Hide();
+    }
     private void OnBlow(Vector2 worldPos)
     {
         float distance = Vector2.Distance(worldPos, transform.position);
@@ -96,20 +110,19 @@ public class PlayerController : Singleton<PlayerController>, IDamageable
 
     private void OnShoot()
     {
-        if (ammo > 0) {
-            ammo -= 1;
-            UIManager.Instance.AmmoDisplay.ChangeAmmo(ammo);
-            Vector2 shootDir = _gunObject.transform.right;
-            _gunEmitter.Fire(_shotgunWeapon, shootDir);
-            _rigidbody.AddForce(_gunRecoil * -shootDir, ForceMode2D.Impulse);
-            BubbleBlowerCursor.Instance.OnShoot();
-            if (ammo == 0) {
-                StartCoroutine(Reload());
-            }
-            hidingGunCooldownPoint = Time.time + timeToHideGun;
-        }
+        if (gunDisabled || ammo <= 0) return;
 
-        
+        ammo -= 1;
+        UIManager.Instance.AmmoDisplay.ChangeAmmo(ammo);
+        Vector2 shootDir = _gunObject.transform.right;
+        _gunEmitter.Fire(_shotgunWeapon, shootDir);
+        _rigidbody.AddForce(_gunRecoil * -shootDir, ForceMode2D.Impulse);
+        BubbleBlowerCursor.Instance.OnShoot();
+        if (ammo == 0)
+        {
+            StartCoroutine(Reload());
+        }
+        hidingGunCooldownPoint = Time.time + timeToHideGun;
     }
 
     private IEnumerator Reload() {

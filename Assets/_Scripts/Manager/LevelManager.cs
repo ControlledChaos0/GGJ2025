@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
@@ -9,6 +10,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private string nextSceneOverride = "";
     [SerializeField] private Transform enemies;
     [SerializeField] private AudioSource deathSFX;
+    [SerializeField] private UnityEvent OnLevelEnter;
     private int enemyCount;
     private bool paused;
     private void Awake()
@@ -31,7 +33,7 @@ public class LevelManager : Singleton<LevelManager>
             case LevelType.Boss:
                 break;
         }
-        
+        OnLevelEnter.Invoke();
     }
     public void TransitionToNextScene()
     {

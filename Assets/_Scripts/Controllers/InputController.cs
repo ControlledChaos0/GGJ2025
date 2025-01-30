@@ -93,7 +93,7 @@ public class InputController : Singleton<InputController>
     private void OnBlowStarted(InputAction.CallbackContext context)
     {
         _blowing = true;
-        Debug.Log("Blow Started");
+        //Debug.Log("Blow Started");
     }
     private void OnBlowPerformed()
     {
@@ -103,7 +103,7 @@ public class InputController : Singleton<InputController>
     private void OnBlowCanceled(InputAction.CallbackContext context)
     {
         _blowing = false;
-        Debug.Log("Blow Canceled");
+        //Debug.Log("Blow Canceled");
     }
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
